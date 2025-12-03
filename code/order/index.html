@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Margie & RJ Egg Store</title>
+<link rel="stylesheet" href="styles.css">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+</head>
+
+<body>
+<!-- SIDE NAVIGATION -->
+<nav class="side-nav" id="side-nav">
+    <div class="logo">
+        <img src="logo.png" alt="Egg Store Logo">
+        <span>Margie and Rj's</span>
+    </div>
+    <a href="index.html">
+        <i class="ri-home-5-line"></i>
+        <span>Home</span>
+    </a>
+    <a href="profile.html">
+        <i class="ri-user-line"></i>
+        <span>Profile</span>
+    </a>
+    <a href="#" id="logout-btn">
+        <i class="ri-logout-box-line"></i>
+        <span>Logout</span>
+    </a>
+    <div class="toggle-btn" id="toggle-btn">
+        <i class="ri-menu-line"></i>
+    </div>
+</nav>
+
+<header class="hero">
+    <h1>Welcome to the Margie & RJ Egg Store!</h1>
+    <p>Farm-fresh eggs delivered daily!</p>
+</header>
+
+<section class="products">
+    <h2 class="section-title">Available Egg Sizes</h2>
+    <!-- New dropdown added here, outside the product-grid container -->
+    <div class="tray-selector">
+        <label for="tray-type">Select Tray Type:</label>
+        <select id="tray-type">
+            <option value="whole" selected>Whole Tray (30pcs)</option>
+            <option value="half">Half Tray (30pcs)</option>
+        </select>
+    </div>
+    <div class="product-grid">
+        <div class="product-card">
+            <h3>Small Eggs</h3>
+            <p class="expiry" data-size="small"></p>
+            <p class="price">₱220 / tray</p>
+            <div class="qty">
+                <button class="minus">−</button>
+                <input type="number" value="0">
+                <button class="plus">+</button>
+            </div>
+            <button class="add-btn">Add to Cart</button>
+        </div>
+        <div class="product-card">
+            <h3>Medium Eggs</h3>
+            <p class="expiry" data-size="medium"></p>
+            <p class="price">₱230 / tray</p>
+            <div class="qty">
+                <button class="minus">−</button>
+                <input type="number" value="0">
+                <button class="plus">+</button>
+            </div>
+            <button class="add-btn">Add to Cart</button>
+        </div>
+        <div class="product-card">
+            <h3>Large Eggs</h3>
+            <p class="expiry" data-size="large"></p>
+            <p class="price">₱240 / tray</p>
+            <div class="qty">
+                <button class="minus">−</button>
+                <input type="number" value="0">
+                <button class="plus">+</button>
+            </div>
+            <button class="add-btn">Add to Cart</button>
+        </div>
+        <div class="product-card">
+            <h3>Extra Large Eggs</h3>
+            <p class="expiry" data-size="xl"></p>
+            <p class="price">₱255 / tray</p>
+            <div class="qty">
+                <button class="minus">−</button>
+                <input type="number" value="0">
+                <button class="plus">+</button>
+            </div>
+            <button class="add-btn">Add to Cart</button>
+        </div>
+        <div class="product-card">
+            <h3>Jumbo Eggs</h3>
+            <p class="expiry" data-size="jumbo"></p>
+            <p class="price">₱265 / tray</p>
+            <div class="qty">
+                <button class="minus">−</button>
+                <input type="number" value="0">
+                <button class="plus">+</button>
+            </div>
+            <button class="add-btn">Add to Cart</button>
+        </div>
+        <div class="product-card">
+            <h3>Super Jumbo Eggs</h3>
+            <p class="expiry" data-size="superjumbo"></p>
+            <p class="price">₱275 / tray</p>
+            <div class="qty">
+                <button class="minus">−</button>
+                <input type="number" value="0">
+                <button class="plus">+</button>
+            </div>
+            <button class="add-btn">Add to Cart</button>
+        </div>
+    </div>
+</section>
+
+<button id="floating-cart">🛒</button>
+
+<div class="cart-panel" id="cart-panel">
+    <div class="cart-header">
+        <h2>Your Cart</h2>
+        <button id="close-cart" class="close-btn">✕</button>
+    </div>
+
+    <ul id="cart-list"></ul>
+
+    <h3 class="order-title">Order Summary</h3>
+    <div id="order-summary"></div>
+
+    <h3 class="order-title">Customer Details</h3>
+    <div id="customer-details"></div>
+
+    <h3 class="order-title">Customer Information</h3>
+    <div class="order-form">
+        <input type="text" id="cust-name" placeholder="Full Name" required>
+        <input type="tel" id="cust-phone" placeholder="Phone Number" required>
+        <input type="text" id="cust-address" placeholder="Complete Address" required>
+        <label for="cust-date">Choose Pick-Up Date:</label>
+        <input type="date" id="cust-date" required>
+        <label for="cust-time">Choose Pick-Up Time (7AM - 7PM):</label>
+        <div id="time-picker">
+            <select id="hour-select" required></select>
+            <select id="minute-select" required></select>
+            <select id="ampm-select" required></select>
+        </div>
+        <input type="time" id="cust-time" style="display: none;" min="07:00" max="19:00" required> <!-- Hidden input for compatibility -->
+        <textarea id="cust-notes" placeholder="Notes (Optional)"></textarea>
+    </div>
+
+
+    <div class="cart-buttons">
+        <button class="btn-primary" id="checkout">Place Order</button>
+        <button class="btn-secondary" id="cancel-order">Cancel Order</button>
+        <button class="btn-secondary" id="reorder">Reorder Previous</button>
+        <button class="btn-secondary" id="save-orders">Save Orders</button>
+    </div>
+</div>
+
+<!-- Logout Confirmation Modal -->
+<div class="confirm-modal-overlay" id="logout-modal" style="display:none;">
+    <div class="confirm-modal-box">
+        <p>Are you sure you want to logout?</p>
+        <div class="confirm-modal-buttons">
+            <button class="confirm-cancel-btn" id="cancel-logout">Cancel</button>
+            <button class="confirm-ok-btn" id="confirm-logout">Logout</button>
+        </div>
+    </div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
